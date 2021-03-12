@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
         SpawnPosition = gameObject.transform.position;
 		AutoJumpEnabled = autoJumpEnabled;
         Speed = speed;
+        jumpHeigthLocal = jumpHeigth;
         JumpDelay = jumpDelay;
         JumpSpeed = jumpSpeed;
 
@@ -34,20 +35,19 @@ public class Player : MonoBehaviour
 
     public static float JumpTime { get; private set; }
 
-    [SerializeField] private float jumpHeigth;
-    public static float JumpHeight { get; private set; }
+    [SerializeField]
+    private float jumpHeigth;
 
-    //public float JumpHeight
-    //{
-    //    get => _jumpHeigth;
-    //    set
-    //    {
-    //        if (value >= 0)
-    //            _jumpHeigth = value;
-    //        //jumpHeigthLocal = value;
-    //        //JumpTime = CalculateJumpTime();
-    //    }
-    //}
+    private static float jumpHeigthLocal;
+    public static float JumpHeight
+    {
+        get => jumpHeigthLocal;
+        private set
+        {
+            jumpHeigthLocal = value;
+            JumpTime = CalculateJumpTime();
+        }
+    }
 
     [SerializeField]
     private float jumpDelay;
@@ -59,6 +59,6 @@ public class Player : MonoBehaviour
 
     //Не точно работает, реальное время полета больше.
     private static float CalculateJumpTime() =>
-        (float)Math.Sqrt(4 * JumpDelay / -Physics.gravity.y);
+        (float)Math.Sqrt(4 * jumpHeigthLocal / -Physics.gravity.y);
        
 }

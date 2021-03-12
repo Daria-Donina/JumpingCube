@@ -25,12 +25,12 @@ public class PlayerContoller : MonoBehaviour
         }
     }
 
-    private float lastTime = 0f;
+    private float timer = 0f;
     void OnCollisionStay(Collision collision)
 	{
-        if (Player.AutoJumpEnabled && Time.time > lastTime + Player.JumpDelay)
+        if (Player.AutoJumpEnabled && Time.time > timer + Player.JumpDelay)
         {
-            lastTime = Time.time;
+            timer = Time.time;
             Jump();
             canJumpTime = Time.time + Player.JumpTime + Player.JumpDelay;
         }

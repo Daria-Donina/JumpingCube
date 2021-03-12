@@ -39,14 +39,14 @@ public class Coin : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        Debug.Log("Here i hit coin");
+        //Debug.Log("Here i hit coin");
 
-        Debug.Log("С кем столкнулись:", collider.gameObject);
-        Debug.Log("Player: ", player);
-        if (collider.gameObject == player)
-        {
-            CoinHit?.Invoke(gameObject, EventArgs.Empty);
-            Destroy((GameObject)sender);
-        }
+        //Debug.Log("С кем столкнулись:", collider.gameObject);
+        //Debug.Log("Player: ", player);
+        //if (collider.gameObject == player)
+        //{
+        //    CoinHit?.Invoke(gameObject, EventArgs.Empty);
+        //    Destroy((GameObject)sender);
+        //}
     }
 }

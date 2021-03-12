@@ -126,8 +126,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoJumpEnabled: 1
   speed: 0.7
-  jumpHeigth: 5
-  jumpDelay: -100
+  jumpHeigth: 10
+  jumpDelay: 2
   jumpSpeed: 0.1
 --- !u!114 &1086443893550332518
 MonoBehaviour:
@@ -141,5 +141,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 552653a3af3bc7845aa7b8116d9e0bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallMultiplier: 2.5
-  lowJumpMultiplier: 50
