@@ -2,10 +2,12 @@ using UnityEngine;
 using System.Collections;
 public class PlayerContoller : MonoBehaviour
 {
+    public float speedCollisionDown = 1.02f;
     private Joystick joystick;
     private Rigidbody rb;
-
     private float canJumpTime;
+    private float timer = 0f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +27,6 @@ public class PlayerContoller : MonoBehaviour
         }
     }
 
-    private float timer = 0f;
     void OnCollisionStay(Collision collision)
 	{
         if (Player.AutoJumpEnabled && Time.time > timer + Player.JumpDelay)
@@ -34,6 +35,11 @@ public class PlayerContoller : MonoBehaviour
             Jump();
             canJumpTime = Time.time + Player.JumpTime + Player.JumpDelay;
         }
+        //if (rb.velocity.y < 0)
+        //{
+
+        //    rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y * speedCollisionDown, rb.velocity.z);
+        //}
     }
 
 	private void Jump() => 

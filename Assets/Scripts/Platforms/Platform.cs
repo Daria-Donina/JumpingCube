@@ -77,8 +77,11 @@ public class Platform : MonoBehaviour
 
 	private void OnTriggerEnter(Collider collider)
 	{
+		Debug.Log("Player: ", player);
+		Debug.Log("go: ", collider.gameObject);
 		if (collider.gameObject == player)
 		{
+			Debug.Log("player");
 			if (isSticky)
 			{
 				StickOn(player);

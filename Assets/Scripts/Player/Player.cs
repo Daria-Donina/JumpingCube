@@ -8,7 +8,6 @@ public class Player : MonoBehaviour
     void Start()
 	{
         GameObject = GameObject.FindWithTag("Player");
-
         SpawnPosition = gameObject.transform.position;
 		AutoJumpEnabled = autoJumpEnabled;
         Speed = speed;
