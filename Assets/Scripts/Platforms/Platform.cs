@@ -41,7 +41,7 @@ public class Platform : MonoBehaviour
 	private void Start()
 	{
 		startPoint = transform.position;
-		Player.PlayerSet += (sender, EventArgs) => player = Player.GameObject;
+		player = Player.GameObject;
 		endPoint = transform.GetChild(0).position;
 
 		// Recalculate speed for current distance between start and end point
@@ -72,8 +72,14 @@ public class Platform : MonoBehaviour
 		transform.position = Vector3.Lerp(startPoint, endPoint, position);
 	}
 
-	private void SwitchExistence() 
-		=> gameObject.SetActive(!gameObject.activeInHierarchy);
+	private void SwitchExistence()
+    {
+		if (gameObject.activeInHierarchy)
+        {
+			StickOff(player);
+        }
+		gameObject.SetActive(!gameObject.activeInHierarchy);
+    }
 
 	private void OnTriggerEnter(Collider collider)
 	{

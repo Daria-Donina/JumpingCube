@@ -35,11 +35,10 @@ public class PlayerContoller : MonoBehaviour
             Jump();
             canJumpTime = Time.time + Player.JumpTime + Player.JumpDelay;
         }
-        //if (rb.velocity.y < 0)
-        //{
-
-        //    rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y * speedCollisionDown, rb.velocity.z);
-        //}
+        if (rb.velocity.y < 0)
+        {
+            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y * speedCollisionDown, rb.velocity.z);
+        }
     }
 
 	private void Jump() => 
