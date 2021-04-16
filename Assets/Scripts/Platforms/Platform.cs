@@ -42,7 +42,14 @@ public class Platform : MonoBehaviour
 	{
 		startPoint = transform.position;
 		player = Player.GameObject;
-		endPoint = transform.GetChild(0).position;
+
+		Debug.Log(transform);
+		Debug.Log(transform.childCount);
+
+		if (isMoving)
+		{
+			endPoint = transform.GetChild(0).position;
+		}
 
 		// Recalculate speed for current distance between start and end point
 		var heading = startPoint - endPoint;
