@@ -424,9 +424,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6955687072312603157, guid: d1cc5e692e7fa9b479c403edd822d6ad,
+        type: 3}
+      propertyPath: FPS
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 1198486813, guid: d1cc5e692e7fa9b479c403edd822d6ad, type: 3}
       propertyPath: offsetPosition.x
-      value: -3
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1198486813, guid: d1cc5e692e7fa9b479c403edd822d6ad, type: 3}
+      propertyPath: offsetPosition.y
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1198486813, guid: d1cc5e692e7fa9b479c403edd822d6ad, type: 3}
+      propertyPath: offsetPosition.z
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 3688876591499655938, guid: d1cc5e692e7fa9b479c403edd822d6ad,
         type: 3}
@@ -999,7 +1012,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1068112019}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 936566055acb0204b9f99837029ee0f5, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ea9867e818586549a5d4d6a6c79412e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1072293160
@@ -1792,7 +1805,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1932999812}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfe1d953f2609fa499cc9c0dfd8cb748, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ce444fec0774ba43b4a328e33655fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &2074989191

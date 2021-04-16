@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 574540929341323395}
   - component: {fileID: 1168886755770854768}
   - component: {fileID: 1168886755770854772}
+  - component: {fileID: 4664245854498767118}
   m_Layer: 0
   m_Name: FinishPlatform
   m_TagString: Untagged
@@ -155,6 +156,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextSceneName: DefaultScene
+--- !u!65 &4664245854498767118
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087930380221962582}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6, y: 0.2, z: 1.6}
+  m_Center: {x: 0, y: 0.95, z: 0}
 --- !u!64 &1168886755054962266
 MeshCollider:
   m_ObjectHideFlags: 0

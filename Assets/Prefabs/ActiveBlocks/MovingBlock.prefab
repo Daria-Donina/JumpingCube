@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 7261646662774411082}
   - component: {fileID: 7261646662774411083}
   m_Layer: 0
-  m_Name: BlockMovingLarge
+  m_Name: MovingBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMoving: 1
-  speed: 5
+  speed: 2
   isSticky: 1
   destroyOption: 2
   jumpNumber: 0

@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoJumpEnabled: 1
-  speed: 0.7
+  speed: 0.35
   jumpHeigth: 10
   jumpDelay: 2
   jumpSpeed: 0.1
