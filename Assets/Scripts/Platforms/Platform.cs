@@ -41,7 +41,6 @@ public class Platform : MonoBehaviour
 	private void Start()
 	{
 		startPoint = transform.position;
-		player = Player.GameObject;
 
 		Debug.Log(transform);
 		Debug.Log(transform.childCount);
