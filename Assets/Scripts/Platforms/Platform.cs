@@ -36,6 +36,7 @@ public class Platform : MonoBehaviour
 	private GameObject player;
 	private float time = 0f;
 	private Vector3 startPoint;
+	private bool IsActive = true;
 
 
 	private void Start()
@@ -59,9 +60,15 @@ public class Platform : MonoBehaviour
 		{
 			InvokeRepeating("SwitchExistence", activeTime, disabledTime);
 		}
+
+        DeepPlaneScript.PlayerRespawned += DeepPlaneScript_PlayerRespawned;
 	}
 
-	private void FixedUpdate()
+    private void DeepPlaneScript_PlayerRespawned(object sender, EventArgs args) {
+		SetActive(true);
+    }
+
+    private void FixedUpdate()
 	{
 		if (isMoving)
 		{
@@ -123,7 +130,7 @@ public class Platform : MonoBehaviour
 				jumpNumber -= 1;
 				if (jumpNumber <= 0)
 				{
-					DestroyPlatform();
+					Invoke("DestroyPlatform", 0.3f);
 				}
 				break;
 			case DestroyOptions.TimeInSeconds:
@@ -137,7 +144,13 @@ public class Platform : MonoBehaviour
 	private void DestroyPlatform()
 	{
 		StickOff(player);
-		Destroy(gameObject, 0.3f);
+		SetActive(false);
+	}
+
+	private void SetActive(bool state) 
+	{
+		gameObject.GetComponent<Renderer>().enabled = state;
+		gameObject.GetComponent<Collider>().enabled = state;
 	}
 
 	private void OnTriggerExit(Collider collider)
@@ -152,11 +165,15 @@ public class Platform : MonoBehaviour
 		}
 	}
 
-	private IEnumerable Delay()
+	private IEnumerable Delay(float delay = .01f)
     {
-		yield return new WaitForSeconds(.5f);
+		yield return new WaitForSeconds(delay);
     }
 
 	private void StickOff(GameObject go) 
 		=> go.transform.parent = null;
+
+    private void OnDestroy() {
+		DeepPlaneScript.PlayerRespawned -= DeepPlaneScript_PlayerRespawned;
+	}
 }

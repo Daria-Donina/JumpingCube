@@ -1,11 +1,19 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class DeepPlaneScript : MonoBehaviour
 {
+    public static event EventHandler PlayerRespawned;
+
     void OnCollisionEnter(Collision collision)
     {
-        var gameObject = collision.gameObject;
+        if (collision.gameObject.tag == "Player") 
+        {
+            // Notify all subscribers about player respawn
+            PlayerRespawned?.Invoke(this, EventArgs.Empty);
 
-        gameObject.transform.position = Player.SpawnPosition;
+            var gameObject = collision.gameObject;
+            gameObject.transform.position = Player.SpawnPosition;
+        }        
     }
 }
