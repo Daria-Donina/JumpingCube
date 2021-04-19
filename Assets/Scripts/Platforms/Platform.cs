@@ -23,7 +23,7 @@ public class Platform : MonoBehaviour
 
 	[Space]
 
-	[SerializeField] private DestroyOptions destroyOption;
+	[SerializeField] private DestroyOptions destroyOption = DestroyOptions.None;
 	[SerializeField] private int jumpNumber;
 	[SerializeField] private float timeInSeconds;
 
@@ -36,7 +36,6 @@ public class Platform : MonoBehaviour
 	private GameObject player;
 	private float time = 0f;
 	private Vector3 startPoint;
-	private bool IsActive = true;
 
 
 	private void Start()
@@ -61,10 +60,14 @@ public class Platform : MonoBehaviour
 			InvokeRepeating("SwitchExistence", activeTime, disabledTime);
 		}
 
-        DeepPlaneScript.PlayerRespawned += DeepPlaneScript_PlayerRespawned;
+		if (destroyOption != DestroyOptions.None) 
+		{
+			DeepPlaneScript.PlayerRespawned += DeepPlaneScript_PlayerRespawned;
+		}
 	}
 
-    private void DeepPlaneScript_PlayerRespawned(object sender, EventArgs args) {
+    private void DeepPlaneScript_PlayerRespawned(object sender, EventArgs args) 
+	{
 		SetActive(true);
     }
 
@@ -173,7 +176,11 @@ public class Platform : MonoBehaviour
 	private void StickOff(GameObject go) 
 		=> go.transform.parent = null;
 
-    private void OnDestroy() {
-		DeepPlaneScript.PlayerRespawned -= DeepPlaneScript_PlayerRespawned;
+    private void OnDestroy() 
+	{
+		if (destroyOption != DestroyOptions.None) 
+		{
+			DeepPlaneScript.PlayerRespawned -= DeepPlaneScript_PlayerRespawned;
+		}
 	}
 }
