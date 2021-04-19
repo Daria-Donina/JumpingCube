@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Point
   - Coin
+  - NotAlwaysActiveBlock
   layers:
   - Default
   - TransparentFX
