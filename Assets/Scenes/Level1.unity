@@ -462,7 +462,7 @@ PrefabInstance:
     - target: {fileID: 1705540252058238064, guid: 1eb871a9f2407fa4f8b18716c8e45f53,
         type: 3}
       propertyPath: m_Name
-      value: Canvas
+      value: InGameUI
       objectReference: {fileID: 0}
     - target: {fileID: 1705540252058238076, guid: 1eb871a9f2407fa4f8b18716c8e45f53,
         type: 3}
@@ -610,7 +610,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-35732
+  m_Name: pb_Mesh-12760
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
