@@ -3,8 +3,7 @@
 public static class Loader {
 	public static void LoadScene(string sceneName) {
 		if (sceneName == "DefaultScene") {
-			SceneManager.LoadSceneAsync(
-				SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Single);
+			LoadNextScene();
 		}
 		else {
 			SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
