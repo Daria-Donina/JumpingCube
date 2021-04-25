@@ -4,17 +4,12 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 	private PlayerState state;
-	public PlayerState State 
-	{ 
-		get => state; 
-		set
-		{
-			state = value;
-			state.UpdateState(gameObject);
-		}
-	}
 
-	public static event EventHandler<EventArgs> PlayerSet;
+	public void SetState(PlayerState value)
+	{
+		state = value;
+		state.UpdateState(gameObject);
+	}
 
 	void Start()
 	{
@@ -26,8 +21,6 @@ public class Player : MonoBehaviour
 		JumpSpeed = jumpSpeed;
 
 		JumpTime = CalculateJumpTime();
-
-		PlayerSet?.Invoke(this, EventArgs.Empty);
 	}
 
 	public static Vector3 SpawnPosition { get; private set; }
@@ -68,5 +61,7 @@ public class Player : MonoBehaviour
 	//Не точно работает, реальное время полета больше.
 	private static float CalculateJumpTime() =>
 		(float)Math.Sqrt(4 * jumpHeigthLocal / -Physics.gravity.y);
+
+	public GameObject GetPlayer() => gameObject;
 
 }
