@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 077ada8d3769f5341ad79934e83b43df, type: 3}
+  m_Script: {fileID: 11500000, guid: 222923bee05961c48be47793b5fc4fb0, type: 3}
   m_Name: DestroyingMovingPlatform
   m_EditorClassIdentifier: 
   _moving: 1

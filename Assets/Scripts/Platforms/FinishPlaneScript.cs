@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class FinishPlaneScript : MonoBehaviour {
+public class FinishPlaneScript : MonoBehaviour 
+{
     [SerializeField]
     private string nextSceneName = "DefaultScene";
 

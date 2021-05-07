@@ -51,7 +51,6 @@ class StickyPlatformComponent : MovingPlatformComponent
 		{
 			player.transform.parent = playerParent;
 			isSticked = false;
-			Debug.Log("stick off");
 		}
 	}
 }

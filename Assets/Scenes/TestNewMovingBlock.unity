@@ -368,7 +368,7 @@ PrefabInstance:
     - target: {fileID: -6955687072312603157, guid: d1cc5e692e7fa9b479c403edd822d6ad,
         type: 3}
       propertyPath: FPS
-      value: 60
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1198486813, guid: d1cc5e692e7fa9b479c403edd822d6ad, type: 3}
       propertyPath: lookAt
@@ -807,7 +807,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-29988
+  m_Name: pb_Mesh-1420
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1379,7 +1379,7 @@ PrefabInstance:
     - target: {fileID: 1168886755770854772, guid: 83481ac250408214bb634880b64c7092,
         type: 3}
       propertyPath: nextSceneName
-      value: DefaultScene
+      value: TestNewMovingBlock
       objectReference: {fileID: 0}
     - target: {fileID: 1707428526448182252, guid: 83481ac250408214bb634880b64c7092,
         type: 3}

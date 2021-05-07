@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 8288620628737594403}
   - component: {fileID: 7261646662774411127}
   - component: {fileID: 7261646662774411082}
-  - component: {fileID: 2309539135110554244}
+  - component: {fileID: 3603517777972390676}
   m_Layer: 0
   m_Name: MovingBlock
   m_TagString: Untagged
@@ -143,7 +143,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &2309539135110554244
+--- !u!114 &3603517777972390676
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7496211874880337398}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3f0c2463f8c8b54d9af87340d8bd1f0, type: 3}
+  m_Script: {fileID: 11500000, guid: 84b9b6bda842ccf4cb9984f0ef00036d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  configuration: {fileID: 11400000, guid: 676bf1bde73333248a4b14624e35bcb6, type: 2}
+  configuration: {fileID: 11400000, guid: fd68e69042b485c4190b53d1c43e2517, type: 2}
