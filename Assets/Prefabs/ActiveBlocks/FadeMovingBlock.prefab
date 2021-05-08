@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 740960530521419581}
   - component: {fileID: 3291177934328470519}
   - component: {fileID: 4210031420005957795}
-  - component: {fileID: 4210031420005957788}
   - component: {fileID: 4210031420005957790}
-  - component: {fileID: 4210031420005957791}
+  - component: {fileID: 7919057468885948702}
   m_Layer: 0
   m_Name: FadeMovingBlock
   m_TagString: Untagged
@@ -60,6 +59,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -86,6 +86,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &4210031420005957795
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -99,20 +100,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.99999994, y: 0.5, z: 0.99999994}
   m_Center: {x: 0, y: 0.25, z: 0}
---- !u!64 &4210031420005957788
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3939629966621096482}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -465338011813135899, guid: f2de4fda7ee5e764b9cee9637e6f5462, type: 3}
 --- !u!65 &4210031420005957790
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -126,7 +113,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &4210031420005957791
+--- !u!114 &7919057468885948702
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,18 +122,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3939629966621096482}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4df6c455f179a2449ffce8753ef8bf2, type: 3}
+  m_Script: {fileID: 11500000, guid: 84b9b6bda842ccf4cb9984f0ef00036d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMoving: 1
-  speed: 3
-  isSticky: 1
-  destroyOption: 2
-  jumpNumber: 0
-  timeInSeconds: 0
-  isFading: 1
-  disabledTime: 6
-  activeTime: 6
+  configuration: {fileID: 11400000, guid: c3ba6adc4aaf7f047858cb18fd8802f4, type: 2}
 --- !u!1 &4210031419279802288
 GameObject:
   m_ObjectHideFlags: 0
