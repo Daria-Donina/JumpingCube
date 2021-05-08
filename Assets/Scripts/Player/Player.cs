@@ -4,6 +4,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 	private PlayerState state;
+<<<<<<< Updated upstream
 	public PlayerState State 
 	{ 
 		get => state; 
@@ -12,6 +13,16 @@ public class Player : MonoBehaviour
 			state = value;
 			state.UpdateState(gameObject);
 		}
+=======
+
+	[SerializeField]
+	private PlayerConfiguration configuration;
+
+	public void SetState(PlayerState value)
+	{
+		state = value;
+		state.UpdateState(gameObject);
+>>>>>>> Stashed changes
 	}
 
 	public static event EventHandler<EventArgs> PlayerSet;

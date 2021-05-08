@@ -43,7 +43,7 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 11
+  serializedVersion: 12
   m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -118,6 +118,8 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
+    maxJobWorkers: 0
+    preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
@@ -252,6 +254,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -277,6 +280,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &372209775
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -457,8 +461,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: d093c4e97c6f9b940a7b82c2d87172fc, type: 3}
 --- !u!4 &733854688 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 7584154238207908633, guid: d093c4e97c6f9b940a7b82c2d87172fc,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 733854687}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &946528983
@@ -545,6 +548,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d093c4e97c6f9b940a7b82c2d87172fc, type: 3}
+--- !u!4 &946528984 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 946528983}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &953767853
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -693,7 +701,7 @@ Transform:
   m_Children:
   - {fileID: 372209772}
   - {fileID: 733854688}
-  - {fileID: 1481450089}
+  - {fileID: 946528984}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -766,12 +774,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fe077095276c10468c78d10de1562e7, type: 3}
---- !u!4 &1481450089 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7584154238207908633, guid: d093c4e97c6f9b940a7b82c2d87172fc,
-    type: 3}
-  m_PrefabInstance: {fileID: 946528983}
-  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1502396297
 Mesh:
   m_ObjectHideFlags: 0
@@ -942,6 +944,7 @@ Mesh:
   m_MeshMetrics[1]: 1
   m_MeshOptimizationFlags: 1
   m_StreamData:
+    serializedVersion: 2
     offset: 0
     size: 0
     path: 
@@ -1110,6 +1113,7 @@ Light:
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
 --- !u!4 &1885306458
@@ -1198,6 +1202,12 @@ PrefabInstance:
       propertyPath: speed
       value: 0.35
       objectReference: {fileID: 0}
+    - target: {fileID: 4592110819983427305, guid: 9b4da95ce123a804fb379a0e55fc0d7e,
+        type: 3}
+      propertyPath: configuration
+      value: 
+      objectReference: {fileID: 11400000, guid: 1d688e771abcba748853562fa67e48c8,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b4da95ce123a804fb379a0e55fc0d7e, type: 3}
 --- !u!1001 &1168886756935808970
