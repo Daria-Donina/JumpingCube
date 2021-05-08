@@ -17,11 +17,11 @@ public class Player : MonoBehaviour
 	void Start()
 	{
 		SpawnPosition = gameObject.transform.position;
-		AutoJumpEnabled = autoJumpEnabled;
-		Speed = speed;
-		jumpHeigthLocal = jumpHeigth;
-		JumpDelay = jumpDelay;
-		JumpSpeed = jumpSpeed;
+		AutoJumpEnabled = configuration.AutoJumpEnabled;
+		Speed = configuration.Speed;
+		jumpHeigthLocal = configuration.JumpHeigth;
+		JumpDelay = configuration.JumpDelay;
+		JumpSpeed = configuration.JumpSpeed;
 
 		JumpTime = CalculateJumpTime();
 	}

@@ -15,7 +15,7 @@ public class PlayerConfiguration : ScriptableObject
 
 	[SerializeField] private float jumpSpeed;
 
-	public bool AutoJumpEnabledo => autoJumpEnabled;
+	public bool AutoJumpEnabled => autoJumpEnabled;
 	public float Speed => speed;
 	public float JumpHeigth => jumpHeigth;
 	public float JumpDelay => jumpDelay;
