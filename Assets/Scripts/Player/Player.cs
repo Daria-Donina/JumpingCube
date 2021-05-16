@@ -5,66 +5,46 @@ public class Player : MonoBehaviour
 {
 	private PlayerState state;
 
-	[SerializeField]
 	private PlayerConfiguration configuration;
+	public PlayerConfiguration Configuration
+	{
+		get => configuration;
+		set
+		{
+			configuration = value;
+
+			AutoJumpEnabled = configuration.AutoJumpEnabled;
+			Speed = configuration.Speed;
+			JumpHeight = configuration.JumpHeigth;
+			JumpDelay = configuration.JumpDelay;
+			JumpSpeed = configuration.JumpSpeed;
+		}
+	}
 
 	public void SetState(PlayerState value)
 	{
 		state = value;
-		state.UpdateState(gameObject);
+		state.UpdateState();
+	}
+
+	public void SetConfiguration(PlayerConfiguration configuration)
+	{
+		Configuration = configuration;
 	}
 
 	void Start()
 	{
+		state = PlayerState.GetCurrentState(gameObject);
+		state.InitializeStates(gameObject);
+		Configuration = state.GetConfiguration();
+
 		SpawnPosition = gameObject.transform.position;
-		AutoJumpEnabled = configuration.AutoJumpEnabled;
-		Speed = configuration.Speed;
-		jumpHeigthLocal = configuration.JumpHeigth;
-		JumpDelay = configuration.JumpDelay;
-		JumpSpeed = configuration.JumpSpeed;
-
-		JumpTime = CalculateJumpTime();
 	}
 
-	public static Vector3 SpawnPosition { get; private set; }
-
-	[SerializeField]
-	private bool autoJumpEnabled;
-	public static bool AutoJumpEnabled { get; private set; }
-
-	[SerializeField]
-	private float speed;
-	public static float Speed { get; private set; }
-
-	public static float JumpTime { get; private set; }
-
-	[SerializeField]
-	private float jumpHeigth;
-
-	private static float jumpHeigthLocal;
-	public static float JumpHeight
-	{
-		get => jumpHeigthLocal;
-		private set
-		{
-			jumpHeigthLocal = value;
-			JumpTime = CalculateJumpTime();
-		}
-	}
-
-	[SerializeField]
-	private float jumpDelay;
-	public static float JumpDelay { get; private set; }
-
-	[SerializeField]
-	private float jumpSpeed;
-
-	public static float JumpSpeed { get; private set; }
-
-	//Не точно работает, реальное время полета больше.
-	private static float CalculateJumpTime() =>
-		(float)Math.Sqrt(4 * jumpHeigthLocal / -Physics.gravity.y);
-
-	public GameObject GetPlayer() => gameObject;
-
+	public Vector3 SpawnPosition { get; private set; }
+	public bool AutoJumpEnabled { get; private set; }
+	public float Speed { get; private set; }
+	public float JumpHeight { get; private set; }
+	public float JumpDelay { get; private set; }
+	public float JumpSpeed { get; private set; }
 }

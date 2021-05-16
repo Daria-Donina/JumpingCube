@@ -9,9 +9,5 @@ namespace Assets.Scripts.Player
 {
 	public class CrateItemStrongState : PlayerState
 	{
-		public override void UpdateState(GameObject player)
-		{
-			Skin = player.transform.Find("crateItemStrong").gameObject;
-		}
 	}
 }

@@ -5,7 +5,16 @@ public class DeepPlaneScript : MonoBehaviour
 {
     public static event EventHandler PlayerRespawned;
 
-    void OnCollisionEnter(Collision collision)
+    [SerializeField]
+    private GameObject playerObj;
+    private Player player;
+
+	private void Start()
+	{
+        player = playerObj.GetComponent<Player>();
+	}
+
+	void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player") 
         {
@@ -13,7 +22,7 @@ public class DeepPlaneScript : MonoBehaviour
             PlayerRespawned?.Invoke(this, EventArgs.Empty);
 
             var gameObject = collision.gameObject;
-            gameObject.transform.position = Player.SpawnPosition;
+            gameObject.transform.position = player.SpawnPosition;
         }        
     }
 }
