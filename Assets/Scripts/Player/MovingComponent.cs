@@ -24,7 +24,7 @@ public class MovingComponent : MonoBehaviour
 
         if (player.AutoJumpEnabled)
         {
-           // JumpSpeedControl();
+            JumpSpeedControl();
         }
     }
 

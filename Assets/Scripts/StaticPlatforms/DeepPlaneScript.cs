@@ -4,12 +4,6 @@ using UnityEngine;
 public class DeepPlaneScript : MonoBehaviour
 {
     public static event EventHandler PlayerRespawned;
-    private Player player;
-
-	private void Start()
-	{
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-	}
 
 	void OnCollisionEnter(Collision collision)
     {
@@ -19,7 +13,7 @@ public class DeepPlaneScript : MonoBehaviour
             PlayerRespawned?.Invoke(this, EventArgs.Empty);
 
             var gameObject = collision.gameObject;
-            gameObject.transform.position = player.SpawnPosition;
+            gameObject.transform.position = Player.SpawnPosition;
         }        
     }
 }

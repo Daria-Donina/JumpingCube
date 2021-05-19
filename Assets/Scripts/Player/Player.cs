@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
 		SpawnPosition = gameObject.transform.position;
 	}
 
-	public Vector3 SpawnPosition { get; private set; }
+	public static Vector3 SpawnPosition { get; private set; }
 	public bool AutoJumpEnabled { get; private set; }
 	public float Speed { get; private set; }
 	public float JumpHeight { get; private set; }
