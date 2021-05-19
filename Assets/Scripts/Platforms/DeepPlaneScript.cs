@@ -4,14 +4,11 @@ using UnityEngine;
 public class DeepPlaneScript : MonoBehaviour
 {
     public static event EventHandler PlayerRespawned;
-
-    [SerializeField]
-    private GameObject playerObj;
     private Player player;
 
 	private void Start()
 	{
-        player = playerObj.GetComponent<Player>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 	}
 
 	void OnCollisionEnter(Collision collision)
