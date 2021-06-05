@@ -34,7 +34,7 @@ class DestroyingPlatformComponent : PlatformComponent
 		startAmount = amount;
 		this.amount = amount;
 
-		DeepPlaneScript.PlayerRespawned += Restart;
+		Player.Respawned += Restart;
 	}
 
 	public override void OnCollisionEnter(Collision collision)
@@ -69,6 +69,6 @@ class DestroyingPlatformComponent : PlatformComponent
 
 	public override void Dispose()
 	{
-		DeepPlaneScript.PlayerRespawned -= Restart;
+		Player.Respawned -= Restart;
 	}
 }

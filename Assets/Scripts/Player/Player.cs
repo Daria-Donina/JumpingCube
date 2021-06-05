@@ -6,6 +6,9 @@ public class Player : MonoBehaviour
 	private PlayerState state;
 
 	private PlayerConfiguration configuration;
+
+	public static event EventHandler Respawned;
+
 	public PlayerConfiguration Configuration
 	{
 		get => configuration;
@@ -30,6 +33,13 @@ public class Player : MonoBehaviour
 	public void SetConfiguration(PlayerConfiguration configuration)
 	{
 		Configuration = configuration;
+	}
+
+	public void Respawn()
+	{
+		Respawned?.Invoke(this, EventArgs.Empty);
+
+		gameObject.transform.position = SpawnPosition;
 	}
 
 	void Start()
