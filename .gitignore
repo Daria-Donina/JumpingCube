@@ -13,6 +13,10 @@
 /[Aa]ssets/uipack_fixed.meta
 /[Aa]ssets/gameicons/
 /[Aa]ssets/gameicons.meta
+/[Aa]ssets/gameicons-expansion/
+/[Aa]ssets/gameicons-expansion.meta
+/[Aa]ssets/Lean/
+/[Aa]ssets/Lean.meta
 
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
