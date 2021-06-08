@@ -17,12 +17,8 @@ public class PagePanelController : MonoBehaviour
 
 	public void SelectedNew(int index)
 	{
-		Debug.Log(index);
-
 		var prevChild = transform.GetChild(indexOfSelected);
 		prevChild.GetComponent<Image>().color = defaultColor;
-
-		print(prevChild.name);
 
 		var nextChild = transform.GetChild(index);
 		nextChild.GetComponent<Image>().color = selectedColor;
