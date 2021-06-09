@@ -39,7 +39,7 @@ public class PanelMovingAnimator : MonoBehaviour
 	private void CalculatePosition()
 	{
 		_centerPosition = new Vector3(Screen.width / 2, Screen.height / 2, 10);
-		_positionToShow = _centerPosition + Vector3.right * Screen.width * 2 * moveFrom;
-		_positionToHide = _centerPosition + Vector3.right * Screen.width * moveFrom;
+		_positionToShow = _centerPosition + Vector3.down * Screen.height * 2 * moveFrom;
+		_positionToHide = _centerPosition + Vector3.down * Screen.height * moveFrom;
 	}
 }

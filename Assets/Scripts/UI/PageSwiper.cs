@@ -1,5 +1,5 @@
+using DG.Tweening;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -9,12 +9,15 @@ public class PageSwiper : MonoBehaviour, IDragHandler, IEndDragHandler
 	private float percentThreshold = 0.2f;
 
 	[SerializeField]
-	private float easing = 0.5f;
-
-	[SerializeField]
 	private GameObject pagePanel;
 
-	private Vector3 panelLocation;
+	[SerializeField]
+	private float distanceBetweenPanels = 200f;
+
+	[SerializeField]
+	private float switchSpeed = 1f;
+
+	private float panelLocationX;
 	private PagePanelController pagePanelController;
 	private int currentChild = 0;
 
@@ -30,53 +33,61 @@ public class PageSwiper : MonoBehaviour, IDragHandler, IEndDragHandler
 
 	private void Start()
 	{
-		panelLocation = transform.position;
 		pagePanelController = pagePanel.GetComponent<PagePanelController>();
+		SetDistanceBetweenPanels();
+	}
+
+	private void SetDistanceBetweenPanels()
+	{
+		int count = transform.childCount;
+
+		for (int i = 0; i < count; i++)
+		{
+			Transform child = transform.GetChild(i);
+			if (i == 0)
+			{
+				child.localPosition = Vector3.zero;
+			}
+			else
+			{
+				Transform lastChild = transform.GetChild(i - 1);
+				var newPosition = new Vector3(distanceBetweenPanels, 0);
+				newPosition += lastChild.localPosition;
+				child.localPosition = newPosition;
+			}
+		}
 	}
 
 	public void OnDrag(PointerEventData eventData)
 	{
 		var difference = eventData.pressPosition.x - eventData.position.x;
-		transform.position = panelLocation - new Vector3(difference, 0, 0);
+		var move = panelLocationX - difference;
+		transform.DOLocalMoveX(move, 0f);
 	}
 
 	public void OnEndDrag(PointerEventData eventData)
 	{
 		float percentage = (eventData.pressPosition.x - eventData.position.x)
-			/ Screen.width;
+			/ distanceBetweenPanels;
 
 		if (Mathf.Abs(percentage) >= percentThreshold)
 		{
-			var newLocation = panelLocation;
-
 			if (percentage > 0 && CurrentChild < transform.childCount - 1)
 			{
-				newLocation += new Vector3(-Screen.width, 0, 0);
+				panelLocationX -= distanceBetweenPanels;
 				CurrentChild++;
 			}
 			else if (percentage < 0 && CurrentChild > 0)
 			{
-				newLocation += new Vector3(Screen.width, 0, 0);
+				panelLocationX += distanceBetweenPanels;
 				CurrentChild--;
 			}
 
-			StartCoroutine(SmoothMove(transform.position, newLocation, easing));
-			panelLocation = newLocation;
+			transform.DOLocalMoveX(panelLocationX, switchSpeed);
 		}
 		else
 		{
-			StartCoroutine(SmoothMove(transform.position, panelLocation, easing));
-		}
-	}
-
-	IEnumerator SmoothMove(Vector3 startpos, Vector3 endpos, float seconds)
-	{
-		var t = 0f;
-		while (t <= 1.0)
-		{
-			t += Time.deltaTime / seconds;
-			transform.position = Vector3.Lerp(startpos, endpos, Mathf.SmoothStep(0f, 1f, t));
-			yield return null;
+			transform.DOLocalMoveX(panelLocationX, switchSpeed);
 		}
 	}
 }
