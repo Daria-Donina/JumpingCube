@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,15 +8,17 @@ using UnityEngine;
 class DestroyingPlatformComponent : PlatformComponent
 {
 	private const float delayForJumpDestroy = 0.3f;
+	private const int waitTime = 1;
 
 	private GameObject player;
 
 	private int startAmount;
 	private int amount;
 
-	private Action collisionHandler;
+	private Action CollisionHandler;
 	private Platform platform;
 
+	private IEnumerator destroyingSecondsCoroutine;
 
 	public DestroyingPlatformComponent(Platform platform, DestroyOptions destroyOption,
 		int amount,
@@ -24,7 +27,7 @@ class DestroyingPlatformComponent : PlatformComponent
 		this.platform = platform;
 		this.player = player;
 
-		collisionHandler = destroyOption switch
+		CollisionHandler = destroyOption switch
 		{
 			DestroyOptions.AfterNJumps => DestroyAfterNJumps,
 			DestroyOptions.AfterNSeconds => DestroyAfterNSeconds,
@@ -34,6 +37,8 @@ class DestroyingPlatformComponent : PlatformComponent
 		startAmount = amount;
 		this.amount = amount;
 
+		destroyingSecondsCoroutine = DestroyingSecondsCoroutine();
+
 		Player.Respawned += Restart;
 	}
 
@@ -41,13 +46,12 @@ class DestroyingPlatformComponent : PlatformComponent
 	{
 		if (collision.gameObject == player)
 		{
-			collisionHandler();
+			CollisionHandler();
 		}
 	}
 
 	private void DestroyAfterNJumps()
 	{
-		Debug.Log(amount);
 		amount -= 1;
 
 		if (amount == 0)
@@ -58,13 +62,31 @@ class DestroyingPlatformComponent : PlatformComponent
 
 	private void DestroyAfterNSeconds()
 	{
-		platform.Invoke(nameof(platform.DestroyPlatform), amount);
+		if (amount == startAmount)
+		{
+			platform.StartCoroutine(destroyingSecondsCoroutine);
+		}
+	}
+
+	private IEnumerator DestroyingSecondsCoroutine()
+	{
+		Debug.Log("Destroy after " + amount);
+		Debug.Log("started coroutine " + Time.time);
+
+		yield return new WaitForSeconds(amount);
+
+		amount = 0;
+
+		platform.DestroyPlatform();
+
+		Debug.Log("finished coroutine " + Time.time);
 	}
 
 	private void Restart(object sender, EventArgs args)
 	{
 		platform.SetVisible(true);
 		amount = startAmount;
+		platform.StopCoroutine(destroyingSecondsCoroutine);
 	}
 
 	public override void Dispose()

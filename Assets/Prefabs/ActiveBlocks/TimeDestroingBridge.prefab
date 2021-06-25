@@ -110,3 +110,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   configuration: {fileID: 11400000, guid: e0c5e16f32c5cee4787be99e60516793, type: 2}
+  PlatformTouched:
+    m_PersistentCalls:
+      m_Calls: []

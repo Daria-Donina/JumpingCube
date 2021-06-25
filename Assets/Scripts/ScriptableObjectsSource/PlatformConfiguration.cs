@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
-using static DrawIfAttribute;
 
 [CreateAssetMenu(fileName = "PlatformConfiguration", menuName = "Custom/Platform")]
 public class PlatformConfiguration : ScriptableObject
@@ -24,32 +23,26 @@ public class PlatformConfiguration : ScriptableObject
 	private bool _moving;
 
 	[SerializeField]
-	[DrawIf(nameof(_moving), true)]
 	private float _movingSpeed;
 
 	[SerializeField]
-	[DrawIf(nameof(_moving), true)]
 	private bool _sticky = true;
 
 	[SerializeField]
 	private bool _destroying;
 
 	[SerializeField]
-	[DrawIf(nameof(_destroying), true)]
 	private DestroyOptions _destroyOption;
 
 	[SerializeField]
-	[DrawIf(nameof(_destroying), true)]
 	private int _amount;
 
 	[SerializeField]
 	private bool _fading;
 
 	[SerializeField]
-	[DrawIf(nameof(_fading), true)]
 	private float _activeTime;
 
 	[SerializeField]
-	[DrawIf(nameof(_fading), true)]
 	private float _disabledTime;
 }

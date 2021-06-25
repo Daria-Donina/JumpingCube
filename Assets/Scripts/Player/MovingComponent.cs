@@ -1,60 +1,42 @@
 using UnityEngine;
-using System.Collections;
+using DG.Tweening;
+
 public class MovingComponent : MonoBehaviour
 {
-    public const float speedCollisionDown = 1.02f;
-    private Joystick joystick;
-    private Rigidbody rb;
+    [SerializeField]
     private Player player;
-    private float timer = 0f;
+    [SerializeField]
+    private float jumpDuration = 1f;
+    [SerializeField]
+    private int jumpNumber = 1;
+    [SerializeField]
+    private float moveDuration = 0f;
 
+    private Joystick joystick;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        player = GetComponent<Player>();
+	private void Awake()
+	{
         joystick = FindObjectOfType<Joystick>();
-        rb = GetComponent<Rigidbody>();
-    }
+	}
 
-    // Update is called once per frame
-    void Update()
+	private void Update()
     {
         Move();
-
-        if (player.AutoJumpEnabled)
-        {
-            JumpSpeedControl();
-        }
     }
 
-    void OnCollisionStay(Collision collision)
+    private void OnCollisionEnter(Collision collision)
 	{
-        if (player.AutoJumpEnabled && Time.time > timer + player.JumpDelay)
-        {
-            timer = Time.time;
-            Jump();
-        }
-
-        if (rb.velocity.y < 0)
-        {
-            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y * speedCollisionDown, rb.velocity.z);
-        }
+        Jump();
     }
 
-	private void Jump() => 
-        rb.AddForce(Vector3.up * player.JumpHeight, ForceMode.VelocityChange);
-
-	private void JumpSpeedControl()
-	{
-        var vel = rb.velocity;
-        vel.y -= player.JumpSpeed * Time.deltaTime;
-        rb.velocity = vel;
+    private void Jump()
+    {
+        transform.DOJump(Vector3.up + transform.position, player.JumpHeight, jumpNumber, jumpDuration);
     }
 
     private void Move()
 	{
-        var direction = Vector3.forward * joystick.Vertical + Vector3.right * joystick.Horizontal;
-        transform.Translate(direction * player.Speed);
+        transform.DOMoveX(transform.position.x + joystick.Horizontal, moveDuration);
+        transform.DOMoveZ(transform.position.z + joystick.Vertical, moveDuration);
     }
 }

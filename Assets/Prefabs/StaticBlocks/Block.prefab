@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1894793427446591768}
   - component: {fileID: 4444876758547826130}
   - component: {fileID: 8918461039718472150}
+  - component: {fileID: 5000720047019539499}
   m_Layer: 0
   m_Name: Block
   m_TagString: Untagged
@@ -56,6 +57,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -81,6 +83,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &8918461039718472150
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -94,3 +97,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.49999997, z: 0}
+--- !u!114 &5000720047019539499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2787626655928919047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b9b6bda842ccf4cb9984f0ef00036d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  configuration: {fileID: 11400000, guid: e4635a46c6a0a704e91e0a0d0b41fe66, type: 2}
+  PlatformTouched:
+    m_PersistentCalls:
+      m_Calls: []

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-
+using UnityEngine.Events;
 
 public enum DestroyOptions
 {
@@ -22,6 +22,8 @@ public class Platform : MonoBehaviour
 		= new List<PlatformComponent>();
 	private StickyPlatformComponent stickyComponent;
 	private bool isVisible;
+
+	public UnityEvent<GameObject> PlatformTouched;
 
 	private void Awake()
 	{
@@ -70,39 +72,31 @@ public class Platform : MonoBehaviour
 		}
 	}
 
-	//private T GetPlatformComponent<T>() where T : PlatformComponent
-	//{
-	//	return components.Find(item => item is T) as T;
-	//}
-
 	public void SetVisible(bool state)
 	{
 		GetComponent<Renderer>().enabled = state;
 		GetComponent<Collider>().enabled = state;
 
 		isVisible = state;
+
+		if (!state)
+		{
+			OnDestroy();
+		}
 	}
 
 	public void DestroyPlatform()
 	{
-		stickyComponent?.StickOff();
 		SetVisible(false);
 	}
 	private void SwitchVisibility()
 	{
-		if (isVisible)
-		{
-			stickyComponent?.StickOff();
-		}
-
 		SetVisible(!isVisible);
 	}
 
 	private void FixedUpdate()
 	{
 		components.ForEach(component => component.Update());
-
-		//stickyComponent.Update();
 	}
 
 
@@ -114,6 +108,8 @@ public class Platform : MonoBehaviour
 	private void OnCollisionEnter(Collision collision)
 	{
 		components.ForEach(component => component.OnCollisionEnter(collision));
+
+		PlatformTouched.Invoke(gameObject);
 	}
 
 	private void OnTriggerExit(Collider collider)

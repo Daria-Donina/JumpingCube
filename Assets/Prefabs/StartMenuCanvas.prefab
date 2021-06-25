@@ -65,7 +65,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &327373839896544405
 RectTransform:
   m_ObjectHideFlags: 0
@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 327373840059191179}
   - component: {fileID: 2651528007574004092}
   - component: {fileID: 4787534699656850505}
+  - component: {fileID: 397661149256135396}
   m_Layer: 5
   m_Name: ButtonPlay
   m_TagString: Untagged
@@ -376,6 +377,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &397661149256135396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327373840059191177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.13333334, g: 0.18431373, b: 0.24313726, a: 0.5}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &514571101616080526
 GameObject:
   m_ObjectHideFlags: 0
@@ -1023,9 +1039,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   percentThreshold: 0.2
-  easing: 0.5
   pagePanel: {fileID: 514571101616080526}
   distanceBetweenPanels: 700
+  switchSpeed: 1
 --- !u!1 &3079165314653420125
 GameObject:
   m_ObjectHideFlags: 0

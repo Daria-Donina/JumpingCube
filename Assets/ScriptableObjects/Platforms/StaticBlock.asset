@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 222923bee05961c48be47793b5fc4fb0, type: 3}
-  m_Name: FadingMovingPlatform
+  m_Name: StaticBlock
   m_EditorClassIdentifier: 
-  _moving: 1
-  _movingSpeed: 2
-  _sticky: 1
+  _moving: 0
+  _movingSpeed: 0
+  _sticky: 0
   _destroying: 0
   _destroyOption: 0
   _amount: 0
-  _fading: 1
-  _activeTime: 4
-  _disabledTime: 2
+  _fading: 0
+  _activeTime: 0
+  _disabledTime: 0
