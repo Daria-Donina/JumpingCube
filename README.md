@@ -4,7 +4,7 @@
 It's a game about a cube... that jumps!
 
 ## Gameplay 🎥
-Gameplay video will be soon...
+<img src="Gameplay.gif" height="600" />
 
 ## Control
 As simple as the concept: control Cube with the joystick.
