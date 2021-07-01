@@ -10,8 +10,8 @@ It's a game about a cube... that jumps!
 As simple as the concept: control Cube with the joystick.
 
 ## Features
-- [x] Automatic jumping (DOTween)
-- [x] Horizontal movement with the joystick (DOTween)
+- [x] Automatic jumping
+- [x] Horizontal movement with the joystick
 - [x] "Sticky" moving platforms (Cube moves with them)
 - [x] "Icy" moving platforms (Cube moves without them)
 - [x] Platforms destroying after N Cube jumps
@@ -33,3 +33,5 @@ As simple as the concept: control Cube with the joystick.
 - [ ] Coins
   - [ ] Add on levels
   - [ ] Use for buying skins
+- [ ] Moving with DOTween
+- [ ] Jumping with DOTween
